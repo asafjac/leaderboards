@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   db:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
     ports:
       - "5433:5432"
     environment:
@@ -16,6 +18,17 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - PORT=${PORT}
 
 volumes:
   pgdata:

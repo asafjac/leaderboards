@@ -12,4 +12,4 @@ ENV POSTGRES_PASSWORD=$POSTGRES_PASSWORD
 
 
 # Copy the schema into the container's init directory
-COPY DB/leaders_schema.sql /docker-entrypoint-initdb.d/
+COPY ../../DB/leaders_schema.sql /docker-entrypoint-initdb.d/
