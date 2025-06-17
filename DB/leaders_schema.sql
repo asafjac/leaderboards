@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS leaderboards.users
 (
     id uuid NOT NULL DEFAULT gen_random_uuid(),
     username text NOT NULL,
+    avatar text NOT NULL,
     CONSTRAINT users_pkey PRIMARY KEY (id),
     CONSTRAINT users_username_key UNIQUE (username)
 );
